@@ -631,9 +631,6 @@ label.calc-radio {
  background: #fff;
 }
 
-.calc-product .calc-form-next {
- background: #24282B;
-}
 
 .calc-product .calc-form-next:hover {
  background: rgba(76, 35, 194, 1);
