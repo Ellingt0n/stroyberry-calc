@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="reset.css">
+ <link rel="stylesheet" href="calc.css">
+ <title>calc-popup</title>
+</head>
+
+<body>
+
+ <div class="calc-popup">
+  <div class="calc-popup-wrapper">
+   <div class="calc-popup-left">
+    <div class="calc-banner">
+     <div class="calc-banner-wrapper">
+      <div class="calc-banner-top">
+       <div class="calc-banner-top-icon">
+        <img src="img/calc-banner-top-icon.svg" alt="">
+       </div>
+       <div class="calc-banner-top-label">
+        Онлайн-рассчет
+       </div>
+      </div>
+      <h4 class="calc-banner-title">
+       Во сколько обойдется отделка вашего дома?
+      </h4>
+      <h5 class="calc-banner-subtitle">
+       Рассчитайте прямо сейчас
+      </h5>
+      <div class="calc-banner-text">
+       Подробную смету мы подготовим после замеров, но примерный бюджет Вы можете узнать прямо сейчас
+      </div>
+     </div>
+     <img src="img/calc-banner-bg-desctop.png" alt="" class="calc-banner-bg">
+    </div>
+   </div>
+   <div class="calc-popup-right">
+    <div class="calc-form-wrapper">
+     <h2 class="calc-form-title">Выберите, что вас интересует:</h2>
+
+     <!-- Табы -->
+     <div class="calc-form-tabs" id="popupTabs">
+      <button class="calc-form-tab-button active" data-form="popupRoofForm">Кровля</button>
+      <button class="calc-form-tab-button" data-form="popupFacadeForm">Отделка фасада</button>
+     </div>
+
+     <!-- Форма Кровля -->
+     <form class="calc-form active" id="popupRoofForm">
+      <div class="calc-form-step" data-step="1">
+       <div class="calc-form-grid">
+        <div class="calc-form-group">
+         <label for="roof-area">Площадь кровли:</label>
+         <div class="calc-form-input-wrap">
+          <input type="text" id="roof-area" name="roof-area" placeholder="120">
+          <span class="calc-form-unit">м²</span>
+         </div>
+        </div>
+
+        <div class="calc-form-group">
+         <label>Линейный размер дома:</label>
+         <div class="calc-form-size-wrap">
+          <input type="text" name="house-length" placeholder="120">
+          <span class="calc-form-multiplier">X</span>
+          <input type="text" name="house-width" placeholder="120">
+          <span class="calc-form-unit">м</span>
+         </div>
+        </div>
+       </div>
+
+       <div class="calc-form-radio">
+        <label class="bold-label">Кровельный материал:</label>
+        <div class="calc-form-radio-group">
+         <label class="calc-radio">
+          <input type="radio" name="material" value="Металло-черепица" checked>
+          <span class="calc-radio-custom"></span>
+          Металло-черепица
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="material" value="Ондулин">
+          <span class="calc-radio-custom"></span>
+          Ондулин
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="material" value="Мягкая кровля">
+          <span class="calc-radio-custom"></span>
+          Мягкая кровля
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="material" value="Композитная черепица">
+          <span class="calc-radio-custom"></span>
+          Композитная черепица
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="material" value="Натуральная черепица">
+          <span class="calc-radio-custom"></span>
+          Натуральная черепица
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="material" value="Другое/не знаю">
+          <span class="calc-radio-custom"></span>
+          Другое/не знаю
+         </label>
+        </div>
+       </div>
+
+       <div class="calc-form-footer">
+        <button type="button" class="calc-form-next">Далее</button>
+        <div class="calc-form-step-indicator">Шаг 1 из 2</div>
+       </div>
+      </div>
+
+      <div class="calc-form-step hidden" data-step="2">
+       <div class="calc-form-extra">
+        <label class="big-label">Дополнительно понадобится:</label>
+        <div class="calc-checkbox-group">
+         <label class="calc-checkbox">
+          <input type="checkbox" name="extra" value="Отделка фасада">
+          <span class="calc-checkbox-custom">
+           <svg class="checkmark" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12" />
+           </svg>
+          </span>
+          Отделка фасада
+         </label>
+
+         <label class="calc-checkbox">
+          <input type="checkbox" name="extra" value="Установка водосточной системы" checked>
+          <span class="calc-checkbox-custom">
+           <svg class="checkmark" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12" />
+           </svg>
+          </span>
+          Установка водосточной системы
+         </label>
+        </div>
+       </div>
+       <div class="calc-form-radio utepl-radio">
+        <label class="big-label">Понадобится утепление?</label>
+        <div class="calc-form-radio-group">
+         <label class="calc-radio">
+          <input type="radio" name="utepl" value="Нет" checked>
+          <span class="calc-radio-custom"></span>
+          Нет
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="utepl" value="50мм">
+          <span class="calc-radio-custom"></span>
+          50мм
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="utepl" value="100мм">
+          <span class="calc-radio-custom"></span>
+          100мм
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="utepl" value="150мм">
+          <span class="calc-radio-custom"></span>
+          150мм
+         </label>
+        </div>
+       </div>
+       <div class="calc-form-grid">
+        <div class="calc-form-group calc-form-group-price">
+         <label class="big-label">Желаемая, примерная стоимость:</label>
+         <div class="calc-form-size-wrap">
+          <span class="calc-form-unit">от</span>
+          <input type="text" name="house-price" placeholder="1 000">
+          <span class="calc-form-multiplier">до</span>
+          <input type="text" name="house-price-high" placeholder="13 299">
+          <span class="calc-form-unit">рублей</span>
+         </div>
+        </div>
+       </div>
+
+       <div class="calc-form-text">
+        Менеджер-сметчик "СтройГруппМонтаж" подготовит расчет стоимости отделки кровли вашего дома в трех ценовых
+        категориях, и
+        вышлет смету на электронную почту в течение 15 минут
+       </div>
+
+       <div class="calc-form-contact">
+        <div class="calc-form-group">
+         <div class="calc-form-field">
+          <label>Имя: <span class="required">*</span></label>
+          <input type="text" name="name" placeholder="Представьтесь" required>
+         </div>
+
+         <div class="calc-form-field">
+          <label>Телефон: <span class="required">*</span></label>
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+         </div>
+        </div>
+       </div>
+       <div class="calc-form-footer calc-form-footer-step2">
+        <button type="button" class="calc-form-prev">Назад</button>
+        <button type="submit">Отправить заявку</button>
+        <div class="calc-form-step-indicator">Шаг 2 из 2</div>
+       </div>
+       <div class="calc-agreement">
+        <label class="calc-checkbox">
+         <input type="checkbox" name="agreement" value="Согласен на обработку данных">
+         <span class="calc-checkbox-custom">
+          <svg class="checkmark" viewBox="0 0 24 24">
+           <polyline points="20 6 9 17 4 12" />
+          </svg>
+         </span>
+         <p>Нажимая на кнопку, вы соглашаетесь c <a href="#">политикой конфиденциальности</a></p>
+        </label>
+       </div>
+      </div>
+     </form>
+
+     <!-- Форма Фасад -->
+     <form class="calc-form" id="popupFacadeForm">
+      <div class="calc-form-step" data-step="1">
+       <div class="calc-form-grid">
+        <div class="calc-form-group">
+         <label for="roof-area">Площадь фасада:</label>
+         <div class="calc-form-input-wrap">
+          <input type="text" id="fasad-area" name="fasad-area" placeholder="120">
+          <span class="calc-form-unit">м²</span>
+         </div>
+        </div>
+
+        <div class="calc-form-group">
+         <label>Линейный размер дома:</label>
+         <div class="calc-form-size-wrap">
+          <input type="text" name="house-length" placeholder="120">
+          <span class="calc-form-multiplier">X</span>
+          <input type="text" name="house-width" placeholder="120">
+          <span class="calc-form-unit">м</span>
+         </div>
+        </div>
+       </div>
+
+       <div class="calc-form-radio fasad-radio">
+        <label class="bold-label">Стены дома (материал):</label>
+        <div class="calc-form-radio-group">
+         <label class="calc-radio">
+          <input type="radio" name="st-material" value="Брус" checked>
+          <span class="calc-radio-custom"></span>
+          Брус
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="st-material" value="Каркас">
+          <span class="calc-radio-custom"></span>
+          Каркас
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="st-material" value="Кирпич">
+          <span class="calc-radio-custom"></span>
+          Кирпич
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="st-material" value="Блоки">
+          <span class="calc-radio-custom"></span>
+          Блоки
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="st-material" value="Бетон">
+          <span class="calc-radio-custom"></span>
+          Бетон
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="st-material" value="Газобетон">
+          <span class="calc-radio-custom"></span>
+          Газобетон
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="st-material" value="Другое/не знаю">
+          <span class="calc-radio-custom"></span>
+          Другое/не знаю
+         </label>
+        </div>
+       </div>
+
+       <div class="calc-form-extra fasad-checkbox">
+        <label class="bold-label">Материал отделки фасада:</label>
+        <div class="calc-checkbox-group">
+         <label class="calc-checkbox">
+          <input type="checkbox" name="otdelka" value="Виниловый сайдинг">
+          <span class="calc-checkbox-custom">
+           <svg class="checkmark" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12" />
+           </svg>
+          </span>
+          Виниловый сайдинг
+         </label>
+
+         <label class="calc-checkbox">
+          <input type="checkbox" name="otdelka" value="Металлический сайдинг">
+          <span class="calc-checkbox-custom">
+           <svg class="checkmark" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12" />
+           </svg>
+          </span>
+          Металлический сайдинг
+         </label>
+
+         <label class="calc-checkbox">
+          <input type="checkbox" name="otdelka" value="Фасадные панели">
+          <span class="calc-checkbox-custom">
+           <svg class="checkmark" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12" />
+           </svg>
+          </span>
+          Фасадные панели
+         </label>
+
+         <label class="calc-checkbox">
+          <input type="checkbox" name="otdelka" value="Деревянный сайдинг">
+          <span class="calc-checkbox-custom">
+           <svg class="checkmark" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12" />
+           </svg>
+          </span>
+          Деревянный сайдинг
+         </label>
+
+         <label class="calc-checkbox">
+          <input type="checkbox" name="otdelka" value="Фиброцементный сайдинг">
+          <span class="calc-checkbox-custom">
+           <svg class="checkmark" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12" />
+           </svg>
+          </span>
+          Фиброцементный сайдинг
+         </label>
+
+         <label class="calc-checkbox">
+          <input type="checkbox" name="otdelka" value="Другое/не знаю">
+          <span class="calc-checkbox-custom">
+           <svg class="checkmark" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12" />
+           </svg>
+          </span>
+          Другое/не знаю
+         </label>
+        </div>
+       </div>
+
+       <div class="calc-form-footer">
+        <button type="button" class="calc-form-next">Далее</button>
+        <div class="calc-form-step-indicator">Шаг 1 из 2</div>
+       </div>
+      </div>
+      <div class="calc-form-step hidden" data-step="2">
+       <div class="calc-form-extra">
+        <label class="big-label">Дополнительно понадобится:</label>
+        <div class="calc-checkbox-group">
+         <label class="calc-checkbox">
+          <input type="checkbox" name="fasad-dop" value="Отделка цоколя панелями">
+          <span class="calc-checkbox-custom">
+           <svg class="checkmark" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12" />
+           </svg>
+          </span>
+          Отделка цоколя панелями
+         </label>
+
+         <label class="calc-checkbox">
+          <input type="checkbox" name="fasad-dop" value="Установка водосточной системы" checked>
+          <span class="calc-checkbox-custom">
+           <svg class="checkmark" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12" />
+           </svg>
+          </span>
+          Установка водосточной системы
+         </label>
+        </div>
+       </div>
+       <div class="calc-form-radio utepl-radio">
+        <label class="big-label">Понадобится утепление?</label>
+        <div class="calc-form-radio-group">
+         <label class="calc-radio">
+          <input type="radio" name="utepl" value="Нет" checked>
+          <span class="calc-radio-custom"></span>
+          Нет
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="utepl" value="50мм">
+          <span class="calc-radio-custom"></span>
+          50мм
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="utepl" value="100мм">
+          <span class="calc-radio-custom"></span>
+          100мм
+         </label>
+
+         <label class="calc-radio">
+          <input type="radio" name="utepl" value="150мм">
+          <span class="calc-radio-custom"></span>
+          150мм
+         </label>
+        </div>
+       </div>
+       <div class="calc-form-grid">
+        <div class="calc-form-group calc-form-group-price">
+         <label class="big-label">Желаемая, примерная стоимость:</label>
+         <div class="calc-form-size-wrap">
+          <span class="calc-form-unit">от</span>
+          <input type="text" name="house-price" placeholder="1 000">
+          <span class="calc-form-multiplier">до</span>
+          <input type="text" name="house-price-high" placeholder="13 299">
+          <span class="calc-form-unit">рублей</span>
+         </div>
+        </div>
+       </div>
+
+       <div class="calc-form-text">
+        Менеджер-сметчик "СтройГруппМонтаж" подготовит расчет стоимости отделки кровли вашего дома в трех ценовых
+        категориях, и
+        вышлет смету на электронную почту в течение 15 минут
+       </div>
+
+       <div class="calc-form-contact">
+        <div class="calc-form-group">
+         <div class="calc-form-field">
+          <label>Имя: <span class="required">*</span></label>
+          <input type="text" name="name" placeholder="Представьтесь" required>
+         </div>
+
+         <div class="calc-form-field">
+          <label>Телефон: <span class="required">*</span></label>
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+         </div>
+        </div>
+       </div>
+       <div class="calc-form-footer calc-form-footer-step2">
+        <button type="button" class="calc-form-prev">Назад</button>
+        <button type="submit">Отправить заявку</button>
+        <div class="calc-form-step-indicator">Шаг 2 из 2</div>
+       </div>
+       <div class="calc-agreement">
+        <label class="calc-checkbox">
+         <input type="checkbox" name="agreement" value="Согласен на обработку данных">
+         <span class="calc-checkbox-custom">
+          <svg class="checkmark" viewBox="0 0 24 24">
+           <polyline points="20 6 9 17 4 12" />
+          </svg>
+         </span>
+         <p>Нажимая на кнопку, вы соглашаетесь c <a href="#">политикой конфиденциальности</a></p>
+        </label>
+       </div>
+      </div>
+     </form>
+    </div>
+   </div>
+  </div>
+  <span class="calc-popup-close">
+   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <g opacity="0.4">
+     <path d="M15 5L5 15" stroke="#696D74" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+     <path d="M5 5L15 15" stroke="#696D74" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+   </svg>
+  </span>
+ </div>
+
+
+
+
+ <div class="calc-popup-bg"></div>
+
+ <script src="/calc.js"></script>
+</body>
+
+</html>
